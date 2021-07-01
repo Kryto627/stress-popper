@@ -21,14 +21,6 @@ namespace StressPopper
             ""id"": ""fa70a0dc-b0a8-4b84-88dd-dffd08c8768b"",
             ""actions"": [
                 {
-                    ""name"": ""Mouse Position"",
-                    ""type"": ""Value"",
-                    ""id"": ""7d087469-7300-4f9b-81c6-c6f07bd761c3"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""f821384b-472a-4913-9e38-adcfcb62f693"",
@@ -38,17 +30,6 @@ namespace StressPopper
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""0e370a4e-9482-443c-9368-e61d8ea9faa2"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Mouse Position"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""6f8b07fb-61c7-422a-979b-c099dde321f7"",
@@ -84,7 +65,6 @@ namespace StressPopper
 }");
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-            m_Player_MousePosition = m_Player.FindAction("Mouse Position", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         }
 
@@ -135,13 +115,11 @@ namespace StressPopper
         // Player
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
-        private readonly InputAction m_Player_MousePosition;
         private readonly InputAction m_Player_Interact;
         public struct PlayerActions
         {
             private @PlayerInput m_Wrapper;
             public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-            public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
@@ -152,9 +130,6 @@ namespace StressPopper
             {
                 if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
                 {
-                    @MousePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
-                    @MousePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
-                    @MousePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                     @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
@@ -162,9 +137,6 @@ namespace StressPopper
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @MousePosition.started += instance.OnMousePosition;
-                    @MousePosition.performed += instance.OnMousePosition;
-                    @MousePosition.canceled += instance.OnMousePosition;
                     @Interact.started += instance.OnInteract;
                     @Interact.performed += instance.OnInteract;
                     @Interact.canceled += instance.OnInteract;
@@ -183,7 +155,6 @@ namespace StressPopper
         }
         public interface IPlayerActions
         {
-            void OnMousePosition(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
         }
     }

@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7944152910106163611, guid: b3597cf310777bd4d824df01ecd17125, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7944152910106163611, guid: b3597cf310777bd4d824df01ecd17125, type: 3}
       propertyPath: m_LocalPosition.z
@@ -220,10 +220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2022368a121c642479b732c59ff29cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionLayer:
+  interactableLayer:
     serializedVersion: 2
     m_Bits: 4294967295
-  interactionDistance: 100
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
