@@ -16,25 +16,23 @@ namespace StressPopper {
         private float frequencyX;
         private float frequencyY;
         private float frequencyZ;
-        private float offset;
 
         private void Start() {
             frequencyX = Random.Range(minFrequency, maxFrequency);
             frequencyY = Random.Range(minFrequency, maxFrequency);
             frequencyZ = Random.Range(minFrequency, maxFrequency);
-            offset = Random.value;
         }
 
         private void Update() {
-            float scaleX = Evaluate(frequencyX, offset);
-            float scaleY = Evaluate(frequencyY, offset);
-            float scaleZ = Evaluate(frequencyZ, offset);
+            float scaleX = Evaluate(frequencyX);
+            float scaleY = Evaluate(frequencyY);
+            float scaleZ = Evaluate(frequencyZ);
             Vector3 scale = new Vector3(scaleX, scaleY, scaleZ) * amplitude;
             transform.localScale = Vector3.one + scale;
         }
 
-        private float Evaluate(float frequency, float offset) {
-            return Mathf.PerlinNoise(Time.time * frequency + offset, 0F);
+        private float Evaluate(float frequency) {
+            return (Mathf.PerlinNoise(Time.time * frequency, 0F) * 2F) - 1F;
         }
     }
 }
