@@ -1,38 +1,41 @@
 using UnityEngine;
+using DG.Tweening;
 
 namespace StressPopper {
 
+    /// <summary>
+    /// Warps the object's scale on the Y axis on a loop.
+    /// </summary>
     public class Warp : MonoBehaviour {
 
+        /// <summary>
+        /// The axis the object's scale get warped.
+        /// </summary>
         [SerializeField]
-        private float amplitude;
+        [Tooltip("The axis the object's scale get warped.")]
+        private Vector3 warpAxis;
 
+        /// <summary>
+        /// The amount the object is warped.
+        /// </summary>
         [SerializeField]
-        private float minFrequency;
+        [Tooltip("The amount the object is warped.")]
+        private float warpAmount;
 
+        /// <summary>
+        /// The time in seconds it takes to warp the object.
+        /// </summary>
         [SerializeField]
-        private float maxFrequency;
+        [Tooltip("The time in seconds to take to warp the object.")]
+        private float warpTime;
 
-        private float frequencyX;
-        private float frequencyY;
-        private float frequencyZ;
-
+        /// <summary>
+        /// Called by Unity after the Awake method.
+        /// </summary>
         private void Start() {
-            frequencyX = Random.Range(minFrequency, maxFrequency);
-            frequencyY = Random.Range(minFrequency, maxFrequency);
-            frequencyZ = Random.Range(minFrequency, maxFrequency);
-        }
-
-        private void Update() {
-            float scaleX = Evaluate(frequencyX);
-            float scaleY = Evaluate(frequencyY);
-            float scaleZ = Evaluate(frequencyZ);
-            Vector3 scale = new Vector3(scaleX, scaleY, scaleZ) * amplitude;
-            transform.localScale = Vector3.one + scale;
-        }
-
-        private float Evaluate(float frequency) {
-            return (Mathf.PerlinNoise(Time.time * frequency, 0F) * 2F) - 1F;
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(transform.DOScale(Vector3.one + (warpAxis * warpAmount), warpTime));
+            sequence.SetLoops(int.MaxValue, LoopType.Yoyo);
         }
     }
 }

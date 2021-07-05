@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2b31d7b817c4d4f9df1c6b72256573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.1
-  minFrequency: 0
-  maxFrequency: 1
+  warpAxis: {x: 0, y: 1, z: 0}
+  warpAmount: 0.15
+  warpTime: 2
 --- !u!1 &7944152910106163591
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,12 +108,11 @@ GameObject:
   - component: {fileID: 7944152910106163611}
   - component: {fileID: 7944152910106163588}
   - component: {fileID: 8518605787269587937}
-  - component: {fileID: 3545394350002003428}
   - component: {fileID: 5179308372261409516}
   - component: {fileID: 7702185689954279968}
-  - component: {fileID: 1363352864718928372}
   - component: {fileID: 3498594736473793061}
-  m_Layer: 0
+  - component: {fileID: 3863777655656725959}
+  m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,18 +163,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3545394350002003428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7944152910106163591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa044dc0bfc635845949591b3e762913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5179308372261409516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,8 +178,8 @@ MonoBehaviour:
   OnInteracted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3545394350002003428}
-        m_TargetAssemblyTypeName: StressPopper.Bubble, StressPopper
+      - m_Target: {fileID: 3863777655656725959}
+        m_TargetAssemblyTypeName: StressPopper.PopEffect, StressPopper
         m_MethodName: Pop
         m_Mode: 1
         m_Arguments:
@@ -215,23 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e409769cc3f8a46bf3c3b2e0cbdc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 1, z: 0}
-  speed: 1
---- !u!114 &1363352864718928372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7944152910106163591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790de337f6dfd9643bfe59251b5c26e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 1, y: 0, z: 0}
-  amplitude: 1
-  frequency: 0.75
+  minimumSpeed: 1
+  maximumSpeed: 1.5
 --- !u!114 &3498594736473793061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +217,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 20
+--- !u!114 &3863777655656725959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944152910106163591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92ee3db511b4d24c9987cebed0c63e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalingSpeed: 0.05
