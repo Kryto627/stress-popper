@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 7702185689954279968}
   - component: {fileID: 3498594736473793061}
   - component: {fileID: 3863777655656725959}
+  - component: {fileID: 7425246840671084468}
   m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
@@ -190,6 +191,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7425246840671084468}
+        m_TargetAssemblyTypeName: StressPopper.SpawnUIObject, StressPopper
+        m_MethodName: SpawnObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7702185689954279968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +243,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalingSpeed: 0.05
+--- !u!114 &7425246840671084468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944152910106163591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059918ac812164a469841ba28ac8fb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1158747935153521666, guid: 817dd3f848aa0dc41a790e19ad01a73c, type: 3}
