@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3717413194063473033}
   - component: {fileID: 8092405931493907756}
+  - component: {fileID: 3708821875663429666}
+  - component: {fileID: 5093961712064110832}
   - component: {fileID: 6556159341203581075}
   m_Layer: 0
   m_Name: BubblePopSound
@@ -67,6 +69,31 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cefc74da9ceeddc4bab064717a9fc1fc, type: 3}
   - {fileID: 8300000, guid: f57b41510b536b5448f57dad85b282a0, type: 3}
   - {fileID: 8300000, guid: 5a4a8ed8182897448888d4a321c20860, type: 3}
+--- !u!114 &3708821875663429666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189097781807549105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3af2897a22bc6940aaf04a25db7de52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5093961712064110832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189097781807549105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013b60e535bf8724facadd144f3708ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 5
 --- !u!82 &6556159341203581075
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,10 +1,9 @@
-using System.Collections;
 using UnityEngine;
 
 namespace StressPopper {
 
     [RequireComponent(typeof(AudioSource))]
-    public class BubblePopSoundEffect : MonoBehaviour {
+    public class RandomAudioClip : MonoBehaviour {
 
         [SerializeField]
         private AudioClip[] sounds;
@@ -13,9 +12,10 @@ namespace StressPopper {
 
         private void Awake() {
             audioSource = GetComponent<AudioSource>();
+            audioSource.clip = sounds[Random.Range(0, sounds.Length)];
         }
 
-        private void Start() {
+        /*private void Start() {
             StartCoroutine(KillAfterSoundEffect());
         }
 
@@ -24,6 +24,6 @@ namespace StressPopper {
             audioSource.Play();
             yield return new WaitUntil(() => !audioSource.isPlaying);
             Destroy(gameObject);
-        }
+        }*/
     }
 }
