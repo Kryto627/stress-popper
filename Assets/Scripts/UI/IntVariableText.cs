@@ -1,23 +1,23 @@
 using StressPopper.Data;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 namespace StressPopper.UI {
 
-    [RequireComponent(typeof(Text))]
+    [RequireComponent(typeof(TMP_Text))]
     public class IntVariableText : MonoBehaviour {
 
         public IntVariable variable;
         public string prefix;
 
-        private Text text;
+        private TMP_Text text;
 
         private void Awake() {
-            text = GetComponent<Text>();
+            text = GetComponent<TMP_Text>();
         }
 
         private void Update() {
-            text.text = $"{prefix}{variable.value}";
+            text.SetText($"{prefix}{variable.value}");
         }
     }
 }
