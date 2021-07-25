@@ -14,16 +14,5 @@ namespace StressPopper {
             audioSource = GetComponent<AudioSource>();
             audioSource.clip = sounds[Random.Range(0, sounds.Length)];
         }
-
-        /*private void Start() {
-            StartCoroutine(KillAfterSoundEffect());
-        }
-
-        private IEnumerator KillAfterSoundEffect() {
-            audioSource.clip = sounds[Random.Range(0, sounds.Length)];
-            audioSource.Play();
-            yield return new WaitUntil(() => !audioSource.isPlaying);
-            Destroy(gameObject);
-        }*/
     }
 }
